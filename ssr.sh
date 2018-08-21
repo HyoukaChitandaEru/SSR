@@ -606,9 +606,9 @@ Debian_apt(){
 # 下载 ShadowsocksR
 Download_SSR(){
 	cd "/usr/local/"
-	wget -N --no-check-certificate "https://github.com/ToyoDAdoubi/shadowsocksr/archive/manyuser.zip"
+	wget -N --no-check-certificate "https://github.com/HyoukaChitandaEru/SSR/raw/master/shadowsocksr-manyuser.zip"
 	#git config --global http.sslVerify false
-	#env GIT_SSL_NO_VERIFY=true git clone -b manyuser https://github.com/ToyoDAdoubi/shadowsocksr.git
+	#env GIT_SSL_NO_VERIFY=true git clone -b manyuser https://github.com/HyoukaChitandaEru/SSR
 	#[[ ! -e ${ssr_folder} ]] && echo -e "${Error} ShadowsocksR服务端 下载失败 !" && exit 1
 	[[ ! -e "manyuser.zip" ]] && echo -e "${Error} ShadowsocksR服务端 压缩包 下载失败 !" && rm -rf manyuser.zip && exit 1
 	unzip "manyuser.zip"
@@ -623,14 +623,14 @@ Download_SSR(){
 }
 Service_SSR(){
 	if [[ ${release} = "centos" ]]; then
-		if ! wget --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/other/ssr_centos -O /etc/init.d/ssr; then
+		if ! wget --no-check-certificate https://raw.githubusercontent.com/HyoukaChitandaEru/SSR/master/ssr_centos -O /etc/init.d/ssr; then
 			echo -e "${Error} ShadowsocksR服务 管理脚本下载失败 !" && exit 1
 		fi
 		chmod +x /etc/init.d/ssr
 		chkconfig --add ssr
 		chkconfig ssr on
 	else
-		if ! wget --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/other/ssr_debian -O /etc/init.d/ssr; then
+		if ! wget --no-check-certificate https://raw.githubusercontent.com/HyoukaChitandaEru/SSR/master/ssr_debian -O /etc/init.d/ssr; then
 			echo -e "${Error} ShadowsocksR服务 管理脚本下载失败 !" && exit 1
 		fi
 		chmod +x /etc/init.d/ssr
@@ -644,10 +644,10 @@ JQ_install(){
 		cd "${ssr_folder}"
 		if [[ ${bit} = "x86_64" ]]; then
 			mv "jq-linux64" "jq"
-			#wget --no-check-certificate "https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64" -O ${jq_file}
+			#wget --no-check-certificate "https://github.com/HyoukaChitandaEru/SSR/raw/master/jq-linux64" -O ${jq_file}
 		else
 			mv "jq-linux32" "jq"
-			#wget --no-check-certificate "https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux32" -O ${jq_file}
+			#wget --no-check-certificate "https://github.com/HyoukaChitandaEru/SSR/raw/master/jq-linux32" -O ${jq_file}
 		fi
 		[[ ! -e ${jq_file} ]] && echo -e "${Error} JQ解析器 重命名失败，请检查 !" && exit 1
 		chmod +x ${jq_file}
@@ -918,7 +918,7 @@ get_IP_address(){
 Modify_Config(){
 	SSR_installation_status
 	if [[ -z "${now_mode}" ]]; then
-		echo && echo -e "当前模式: 单端口，你要做什么？
+		echo && echo -e "当前模式: 单端口，你要做（爱，划掉）什么？
  ${Green_font_prefix}1.${Font_color_suffix} 修改 用户端口
  ${Green_font_prefix}2.${Font_color_suffix} 修改 用户密码
  ${Green_font_prefix}3.${Font_color_suffix} 修改 加密方式
@@ -965,7 +965,7 @@ Modify_Config(){
 			echo -e "${Error} 请输入正确的数字(1-9)" && exit 1
 		fi
 	else
-		echo && echo -e "当前模式: 多端口，你要做什么？
+		echo && echo -e "当前模式: 多端口，你要做（爱，划掉）什么？
  ${Green_font_prefix}1.${Font_color_suffix}  添加 用户配置
  ${Green_font_prefix}2.${Font_color_suffix}  删除 用户配置
  ${Green_font_prefix}3.${Font_color_suffix}  修改 用户配置
@@ -1110,7 +1110,7 @@ Port_mode_switching(){
 	SSR_installation_status
 	if [[ -z "${now_mode}" ]]; then
 		echo && echo -e "	当前模式: ${Green_font_prefix}单端口${Font_color_suffix}" && echo
-		echo -e "确定要切换为 多端口模式？[y/N]"
+		echo -e "请确定要切换为 多端口模式？[y/N]"
 		stty erase '^H' && read -p "(默认: n):" mode_yn
 		[[ -z ${mode_yn} ]] && mode_yn="n"
 		if [[ ${mode_yn} == [Yy] ]]; then
@@ -1126,7 +1126,7 @@ Port_mode_switching(){
 		fi
 	else
 		echo && echo -e "	当前模式: ${Green_font_prefix}多端口${Font_color_suffix}" && echo
-		echo -e "确定要切换为 单端口模式？[y/N]"
+		echo -e "请确定要切换为 单端口模式？[y/N]"
 		stty erase '^H' && read -p "(默认: n):" mode_yn
 		[[ -z ${mode_yn} ]] && mode_yn="n"
 		if [[ ${mode_yn} == [Yy] ]]; then
