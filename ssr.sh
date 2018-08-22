@@ -10,7 +10,7 @@ export PATH
 #       修改者: Sakura
 #=================================================
 
-sh_ver="2.0.38"
+sh_ver="3.9"
 filepath=$(cd "$(dirname "$0")"; pwd)
 file=$(echo -e "${filepath}"|awk -F "$0" '{print $1}')
 ssr_folder="/usr/local/shadowsocksr"
@@ -1429,7 +1429,7 @@ Update_Shell(){
 			if [[ $sh_new_type == "softs" ]]; then
 				wget -N --no-check-certificate https://softs.loan/Bash/ssr.sh && chmod +x ssr.sh
 			else
-				wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh && chmod +x ssr.sh
+				wget -N --no-check-certificate https://raw.githubusercontent.com/HyoukaChitandaEru/SSR/master/ssr.sh && chmod +x ssr.sh
 			fi
 			echo -e "脚本已更新为最新版本[ ${sh_new_ver} ] !"
 		else
