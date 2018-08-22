@@ -144,8 +144,6 @@ urlsafe_base64(){
 ss_link_qr(){
 	SSbase64=$(urlsafe_base64 "${method}:${password}@${ip}:${port}")
 	SSurl="ss://${SSbase64}"
-	SSQRcode="http://doub.pw/qr/qr.php?text=${SSurl}"
-	ss_link=" SS    链接 : ${Green_font_prefix}${SSurl}${Font_color_suffix} \n"
 }
 ssr_link_qr(){
 	SSRprotocol=$(echo ${protocol} | sed 's/_compatible//g')
@@ -153,8 +151,6 @@ ssr_link_qr(){
 	SSRPWDbase64=$(urlsafe_base64 "${password}")
 	SSRbase64=$(urlsafe_base64 "${ip}:${port}:${SSRprotocol}:${method}:${SSRobfs}:${SSRPWDbase64}")
 	SSRurl="ssr://${SSRbase64}"
-	SSRQRcode="http://doub.pw/qr/qr.php?text=${SSRurl}"
-	ssr_link=" SSR   链接 : ${Red_font_prefix}${SSRurl}${Font_color_suffix} \n"
 }
 ss_ssr_determine(){
 	protocol_suffix=`echo ${protocol} | awk -F "_" '{print $NF}'`
