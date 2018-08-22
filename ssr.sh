@@ -5,8 +5,9 @@ export PATH
 #=================================================
 #	System Required: CentOS 6+/Debian 6+/Ubuntu 14.04+
 #	Description: Install the ShadowsocksR server
-#	Version: 2.0.38
-#	Author: Sakura
+#	Version: 3.9
+#	原作者: ToyoDAdoubi
+#       修改者: Sakura
 #=================================================
 
 sh_ver="2.0.38"
@@ -1482,7 +1483,13 @@ echo -e "  ShadowsocksR 一键管理脚本 ${Red_font_prefix}[v${sh_ver}]${Font_
 ————————————
  ${Green_font_prefix}14.${Font_color_suffix} 其他功能
  ${Green_font_prefix}15.${Font_color_suffix} 升级脚本
- "
+ 当我画一个太阳，我希望人们感觉它在以惊人的速度旋转，正在发出骇人的光热巨浪。 
+ 当我画一片麦田，我希望人们感觉到麦子正朝着它们最后的成熟和绽放努力。 
+ 当我画一棵苹果树，我希望人们能感觉到苹果里面的果汁正把苹果皮撑开，果核中的种子正在为结出果实奋进。 
+ 当我画一个男人，我就要画出他滔滔的一生。 
+ 如果生活中不再有某种无限的、深刻的、真实的东西，我不再眷恋人间……
+ -------------------------文森特·梵高
+"
 menu_status
 echo && stty erase '^H' && read -p "请输入数字 [1-15]：" num
 case "$num" in
