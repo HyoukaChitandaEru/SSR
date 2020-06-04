@@ -913,7 +913,7 @@ get_IP_address(){
 Modify_Config(){
 	SSR_installation_status
 	if [[ -z "${now_mode}" ]]; then
-		echo && echo -e "当前模式: 单端口，你要做（爱，划掉）什么？
+		echo && echo -e "当前模式: 单端口，你要做什么？
  ${Green_font_prefix}1.${Font_color_suffix} 修改 用户端口
  ${Green_font_prefix}2.${Font_color_suffix} 修改 用户密码
  ${Green_font_prefix}3.${Font_color_suffix} 修改 加密方式
@@ -960,7 +960,7 @@ Modify_Config(){
 			echo -e "${Error} 请输入正确的数字(1-9)" && exit 1
 		fi
 	else
-		echo && echo -e "当前模式: 多端口，你要做（爱，划掉）什么？
+		echo && echo -e "当前模式: 多端口，你要做什么？
  ${Green_font_prefix}1.${Font_color_suffix}  添加 用户配置
  ${Green_font_prefix}2.${Font_color_suffix}  删除 用户配置
  ${Green_font_prefix}3.${Font_color_suffix}  修改 用户配置
