@@ -1,4 +1,4 @@
-CentOS6/Debian6/Ubuntu14 ShadowsocksR一键部署管理脚本：
+CentOS/Debian/Ubuntu ShadowsocksR
 ________________________________________
 yum -y install wget
 wget -N --no-check-certificate https://raw.githubusercontent.com/HyoukaChitandaEru/SSR/master/ssr.sh && chmod +x ssr.sh && bash ssr.sh
