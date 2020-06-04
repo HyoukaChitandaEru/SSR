@@ -3,7 +3,7 @@ ________________________________________
 yum -y install wget
 wget -N --no-check-certificate https://raw.githubusercontent.com/HyoukaChitandaEru/SSR/master/ssr.sh && chmod +x ssr.sh && bash ssr.sh
 
-———————————————————代码分割线————————————————
+————————————————————————————————————————
 复制上面的代码到VPS服务器里，出现管理界面后，输入数字1来安装SSR服务端。如果输入1后不能进入下一步，那么请退出xshell，重新连接vps服务器，然后输入快捷管理命令bash ssr.sh 再尝试。
  
 根据提示，依次输入自己想设置的端口和密码 (密码建议用复杂点的字母组合，端口号为40-65535之间的数字)，回车键用于确认
